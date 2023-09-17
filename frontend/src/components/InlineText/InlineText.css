@@ -1,0 +1,26 @@
+/******************* InlineText Component *******************/
+.inline-text {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0px 12px;
+}
+
+.inline-text__line {
+    border-top: 1px solid #ccc;
+    flex: 1;
+}
+
+.inline-text__content {
+    color: #666;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+@media(max-width: 768px) {
+    .inline-text__content {
+        font-size: 12px;
+    }
+}
+
+/******************* /InlineText Component *******************/

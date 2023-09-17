@@ -1,0 +1,60 @@
+@BASE_URL=http://127.0.01:3333/api/admins
+@ADMIN_TOKEN=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YzQ0Y2RkMDJiOGQ1ZjFlOWY5YzFlOSIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJlbWFpbCI6ImRhbWFyZXNod2FyYWt1bWFyQGdtYWlsLmNvbSIsImFsbG93X3Bhc3N3b3JkX2NoYW5nZSI6ZmFsc2UsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY5MzM0MTQxOCwiZXhwIjoxNjkzNDI3ODE4fQ.6gA4b9BvQCMPtxS-C84xCSmJFzijcV3FQNHYiSzvxqk
+
+@HTTP_VERSION=HTTP/1.1
+
+### Admin Registration
+POST {{BASE_URL}}/register {{HTTP_VERSION}}
+Content-Type: application/json
+Authorization: {{ADMIN_TOKEN}}
+
+{
+    "name": "Adarsh Badagala",
+    "email": "18341A0537@gmrit.edu.in",
+    "allow_password_change": true
+}
+
+### Admin Login
+POST {{BASE_URL}}/login {{HTTP_VERSION}}
+Content-Type: application/json
+
+{
+    "email": "damareshwarakumar@gmail.com",
+    "password": "iamsuperadmin@csm"
+}
+
+### Update Admin Password
+POST {{BASE_URL}}/update-password {{HTTP_VERSION}}
+Content-Type: application/json
+Authorization: {{ADMIN_TOKEN}}
+
+{
+    "password": "iamsuperadmin@csm"
+}
+
+### Forgot Password
+POST {{BASE_URL}}/forgot-password {{HTTP_VERSION}}
+Content-Type: application/json
+
+{
+    "email": "damareshwarakumar@gmail.com"
+}
+
+### Reset Password
+POST {{BASE_URL}}/reset-password {{HTTP_VERSION}}
+Content-Type: application/json
+
+{
+    "email": "damareshwarakumar@gmail.com",
+    "password": "iamsuperadmin@csm",
+    "otp_hash": "345ecfebf1bfa0c9994dcc77d60a7fea9ec9760f8e104ef22eb2ebf2f0830348.1690596262062",
+    "otp": "936903"
+}
+
+### Delete Admin
+DELETE {{BASE_URL}}/64ea67980504aec0827554d7 {{HTTP_VERSION}}
+Authorization: {{ADMIN_TOKEN}}
+
+### Get Admins List
+GET {{BASE_URL}}/ {{HTTP_VERSION}}
+Authorization: {{ADMIN_TOKEN}}

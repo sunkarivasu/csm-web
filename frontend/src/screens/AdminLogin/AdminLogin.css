@@ -1,0 +1,129 @@
+.login {
+    height: 100vh;
+    display: flex;
+    background-color: #F5F5F5;
+}
+
+.login__form-container {
+    flex: 1 0 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.login__img-container {
+    flex: 1 0 50%;
+    background: url(https://www.rentallscript.com/resources/content/images/size/w1384/2022/10/Grocery-Delivery-Business.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 8px 8px 0;
+}
+
+@media (max-width: 768px) {
+    .login {
+        flex-direction: column;
+    }
+
+    .login__form-container {
+        flex: 5;
+        justify-content: flex-start;
+        padding: 12px 12px 0 12px;
+    }
+
+    .login__img-container {
+        flex: 3;
+        border-radius: 0px 0px 8px 8px;
+    }
+}
+
+.login__form-container__title {
+    font-size: 2rem;
+    margin-bottom: 32px;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .login__form-container__title {
+        margin-bottom: 16px;
+        margin-top: 32px;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 576px) {
+    .login__form-container__title {
+        font-size: 1.1rem;
+    }
+}
+
+.login__form-container__form {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .login__form-container__form {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+}
+
+.login__form-container__form__register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.login__form-container__form__register p {
+    margin-right: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .login__form-container__form__register p {
+        font-size: 12px;
+    }
+}
+
+.login__form-container__form__register p:hover {
+    cursor: pointer;
+    color: #000;
+}
+
+.login__form-container__other {
+    display: flex;
+}
+
+.login__form-container__other button {
+    margin: 30px 8px;
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 768px) {
+    .login__form-container__other button {
+        margin: 14px 8px;
+    }
+}
+
+.login__form-container__privacy-policy {
+    position: fixed;
+    bottom: 0;
+}
+
+.login__form-container__privacy-policy__content {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .login__form-container__privacy-policy__content {
+        font-size: 10px;
+    }
+}

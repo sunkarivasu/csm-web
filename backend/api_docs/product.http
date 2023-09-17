@@ -1,0 +1,53 @@
+@BASE_URL=http://127.0.0.1:3333/api/product
+@ADMIN_TOKEN=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YzQ0Y2RkMDJiOGQ1ZjFlOWY5YzFlOSIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJlbWFpbCI6ImRhbWFyZXNod2FyYWt1bWFyQGdtYWlsLmNvbSIsImFsbG93X3Bhc3N3b3JkX2NoYW5nZSI6ZmFsc2UsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY5MTgyOTA1NCwiZXhwIjoxNjkxOTE1NDU0fQ.W3ePJtxHj-FRioVrV2jfL4gGTWJd6kjixzbMFE7cHKs
+
+@HTTP_VERSION=HTTP/1.1
+
+### Get All Products
+GET {{BASE_URL}}
+
+### Get Product By Id
+GET {{BASE_URL}}/64d7efbb5e36b753ab1b07bd
+
+### Add Product
+POST {{BASE_URL}}
+Content-Type: application/json
+Authorization: {{ADMIN_TOKEN}}
+
+{
+    "brand": "Thumps Up lee",
+    "name": "Soft Drink Bottle",
+    "description": "STRONG TASTE: Refresh yourself with the strong taste of Thums Up. SPICY & FIZZY: This strong, spicy and fizzy cold drink is designed to suit your palate TASTE THE THUNDER: Bring out the adventurous side of you with the thunderous taste of Thums Up drink. CREATE AND ENJOY MOMENTS: Enjoy this beverage with family, friends and relive the joy of togetherness. ON-THE GO BEVERAGE: Enjoy the strong taste of Thums Up soft drink on the go, with meals or at parties, RECYCLABLE PACKAGING: Thums UP cans are 100% recyclable, ensuring environmental sustainability. COMMONLY SEARCHED TOPICS: thums up, thums up drink, thums up soft drink, thums up cold drink, thums up can, thums up in fresh. form_factor:liquid; material_features:vegetarian. flavor_name:Cola",
+    "image": "https://google.com",
+    "category": "64d76bcde89b9ed2fa5e559c",
+    "sub_category": "64d7d31a3e60e0ee3fdf7c3f",
+    "variants": [
+        {
+            "price": 40,
+            "quantity": 750
+        }, {
+            "price": 99,
+            "quantity": 2250
+        }
+    ],
+    "quantity_type": "ml"
+}
+
+### Delete Product By Id
+DELETE {{BASE_URL}}/64d807c6dd4c56e99302808f
+Authorization: {{ADMIN_TOKEN}}
+
+### get products by category
+GET {{BASE_URL}}/category/64d76bcde89b9ed2fa5e559c
+
+### get products by sub category
+GET {{BASE_URL}}/sub-category/64d7d31a3e60e0ee3fdf7c3f
+
+### get latest products
+GET {{BASE_URL}}/latest/1
+
+### get latest products by category
+GET {{BASE_URL}}/latest/22/category/64d76bcde89b9ed2fa5e559c
+
+### get latest products in all categories
+GET {{BASE_URL}}/latest/1/category

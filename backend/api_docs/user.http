@@ -1,0 +1,32 @@
+@BASE_URI = http://localhost:3333/api/user
+
+@USER_TOKEN = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YzY1OWUwZWUyZmJlYjllZmI5YzFmMyIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJwaG9uZV9udW1iZXIiOiI3NjYxOTc5OTQzIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTA3MjM3MzQsImV4cCI6MTY5MDgxMDEzNH0.Wl76NR36iKEksGT7vO1EfAtaAEGxKsgD4HwfEx8FByY
+
+@ADMIN_TOKEN = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YzQ0Y2RkMDJiOGQ1ZjFlOWY5YzFlOSIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJlbWFpbCI6ImRhbWFyZXNod2FyYWt1bWFyQGdtYWlsLmNvbSIsImFsbG93X3Bhc3N3b3JkX2NoYW5nZSI6ZmFsc2UsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY5MDc0MTM3MywiZXhwIjoxNjkwODI3NzczfQ.IENPYK5axf_ZmEq1H-mRPrpDoG3Uq9e9UT4TervLj58
+
+### Get all users
+GET {{BASE_URI}}
+Authorization: {{ADMIN_TOKEN}}
+
+### Get user by id
+GET {{BASE_URI}}/64c659e0ee2fbeb9efb9c1f3
+Authorization: {{ADMIN_TOKEN}}
+
+### User Registration
+POST {{BASE_URI}}/
+Content-Type: application/json
+
+{
+    "name": "Dhamareshwarakumar",
+    "password": "iamuser@csm",
+    "phone_number": "7661979943"
+}
+
+### User Login
+POST {{BASE_URI}}/login
+Content-Type: application/json
+
+{
+    "username": "7661979943",
+    "password": "iamuser@csm"
+}

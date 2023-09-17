@@ -1,0 +1,23 @@
+@BASE_URL=http://127.0.0.1:3333/api/categories
+@ADMIN_TOKEN=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YzQ0Y2RkMDJiOGQ1ZjFlOWY5YzFlOSIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJlbWFpbCI6ImRhbWFyZXNod2FyYWt1bWFyQGdtYWlsLmNvbSIsImFsbG93X3Bhc3N3b3JkX2NoYW5nZSI6ZmFsc2UsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY5MTgzNDQ0MiwiZXhwIjoxNjkxOTIwODQyfQ.C3OP3gGOZCj0ZwELpSRNHtjDuVGXKvzq0QgJwHsJlDg
+@HTTP_VERSION=HTTP/1.1
+
+### Get All Categories
+GET {{BASE_URL}}
+
+### Get a Category by ID
+GET {{BASE_URL}}/64d7d4983e60e0ee3fdf7c54
+
+### Add a Category
+POST {{BASE_URL}}
+Content-Type: application/json
+Authorization: {{ADMIN_TOKEN}}
+
+{
+    "name": "Biscuites and Cakes2",
+    "image": "http://127.0.0.1:3333/assets/categories/biscuites-and-cookes.png"
+}
+
+### Delete a Category
+DELETE {{BASE_URL}}/64d7d8ae216fe6595a2f79b5
+Authorization: {{ADMIN_TOKEN}}

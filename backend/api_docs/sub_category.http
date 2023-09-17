@@ -1,0 +1,26 @@
+@BASE_URL=http://127.0.0.1:3333/api/sub-category
+@ADMIN_TOKEN=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YzQ0Y2RkMDJiOGQ1ZjFlOWY5YzFlOSIsIm5hbWUiOiJEaGFtYXJlc2h3YXJha3VtYXIiLCJlbWFpbCI6ImRhbWFyZXNod2FyYWt1bWFyQGdtYWlsLmNvbSIsImFsbG93X3Bhc3N3b3JkX2NoYW5nZSI6ZmFsc2UsInJvbGUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTY5MTgyOTA1NCwiZXhwIjoxNjkxOTE1NDU0fQ.W3ePJtxHj-FRioVrV2jfL4gGTWJd6kjixzbMFE7cHKs
+@HTTP_VERSION=HTTP/1.1
+
+
+### Get All Sub Categories
+GET {{BASE_URL}}/
+
+### Get Sub Category By Id
+GET {{BASE_URL}}/64d7d31a3e60e0ee3fdf7c3f
+
+### Add Sub Category
+POST {{BASE_URL}}/
+Content-Type: application/json
+Authorization: {{ADMIN_TOKEN}}
+
+{
+    "name": "Salted and Plain",
+    "category": "64d7d4983e60e0ee3fdf7c54",
+    "description": "Salt biscuites and Normal biscuites",
+    "image": "http://127.0.0.1:3333/assets/categories/salted-and-plain.png"
+}
+
+### delete Sub Category
+DELETE {{BASE_URL}}/64d7d4ef3e60e0ee3fdf7c69
+Authorization: {{ADMIN_TOKEN}}
