@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Table from '../../components/Table';
 import { getAdmins } from '../../api/admin';
 
-const ManageAdmins = () => {
+const Admins = () => {
     const [admins, setAdmins] = useState([]);
 
     useEffect(() => {
@@ -19,12 +19,13 @@ const ManageAdmins = () => {
                 }
             });
     }, []);
+
     return (
         <div>
             <section>
-                <h1>Admins List</h1>
                 <Table
                     data={[...admins]}
+                    name="Admins"
                     headersNew={[
                         { name: 'id', type: 'text', show: false },
                         { name: 'name', displayName: 'Name', type: 'text', show: true },
@@ -55,10 +56,10 @@ const ManageAdmins = () => {
                 />
             </section>
             <section>
-                <h1>Add Admin</h1>
+                {/* <h1>Add Admin</h1> */}
             </section>
         </div>
     );
 };
 
-export default ManageAdmins;
+export default Admins;
