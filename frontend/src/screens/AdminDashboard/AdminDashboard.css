@@ -1,21 +1,36 @@
+.brand-name
+{
+    font-size: large;
+    font-weight: bold;
+    color: var(--light-color);
+    margin: 20px 0px 100px 0px;
+}
+
 .container {
     display: flex;
     min-height: 100vh;
-    background-color: #FAFAFA;
+    background-color: var(--background-color);
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+    margin: 0px auto;
 }
 
 .left {
-    flex: 1;
+    max-width: 76px;
     padding: 1rem;
-    background-color: var(--light-grey-color);
-    border-radius: 8px;
+    background-color: #FF8901;
+    border-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     display: flex;
     flex-direction: column;
     gap: 2;
 }
 
 .right {
-    flex: 6;
     padding: 1rem;
 }
 
@@ -44,12 +59,23 @@
 }
 
 .pill {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    background-color: var(--secondary-color);
-    color: var(--dark-color);
+    /* display: inline-block; */
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: var(--icon-color);
+    color: var(--light-color);
     font-weight: 500;
     font-size: 0.8rem;
     letter-spacing: 0.5px;
+    height:40px;
+    width: 40px;
+    margin: 15px 0px;
+    text-align: center;
+}
+
+.icon-selected{
+    background-color: var(--light-color);
+    color: var(--primary-color);
 }

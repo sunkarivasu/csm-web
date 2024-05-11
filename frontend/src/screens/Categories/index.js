@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ManageCategories = () => {
+const Categories = () => {
     return (
         <div>ManageCategories</div>
     );
 };
 
-export default ManageCategories;
+export default Categories;

@@ -7,18 +7,23 @@ import {
 } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import {
-    Home,
     AdminDashboard,
     AdminLogin,
-    ManageAdmins,
-    ManageCategories,
-    ManageSubcategories,
-    ManageProducts
+    Admins,
+    Home,
+    NormalOffers,
+    Offers,
+    OfferUsers,
+    Orders,
+    Products,
+    Requests,
 } from './screens';
 import {
     ProtectedRoute
 } from './components';
 import { setAxiosDefaults } from './utils/axios.config';
+import Categories from './screens/Categories';
+import Requests from './screens/Requests';
 const router = createBrowserRouter([
     {
         path: '/',
@@ -27,22 +32,39 @@ const router = createBrowserRouter([
     {
         path: '/admin',
         element: <ProtectedRoute role={['admin']}><AdminDashboard /></ProtectedRoute>,
+        element: <AdminDashboard />,
         children: [
             {
-                path: '/admin/manage-admins',
-                element: <ProtectedRoute role={['super_admin']}><ManageAdmins /></ProtectedRoute>
+                path: '/admin/admins',
+                element: <ProtectedRoute role={['super_admin']}><Admins /></ProtectedRoute>
             },
             {
-                path: '/admin/manage-categories',
-                element: <ManageCategories />
+                path: '/admin/orders',
+                element: <Orders/>
             },
             {
-                path: '/admin/manage-subcategories',
-                element: <ManageSubcategories />
+                path: '/admin/products',
+                element: <Products />
             },
             {
-                path: '/admin/manage-products',
-                element: <ManageProducts />
+                path: '/admin/categories',
+                element: <Categories />
+            },
+            {
+                path: '/admin/offers',
+                element: <Offers />
+            },
+            {
+                path: '/admin/normal-offers',
+                element: <NormalOffers />
+            },
+            {
+                path:'/admin/offer-users',
+                element: <OfferUsers />
+            },
+            {
+                path: '/admin/requests',
+                element: <Requests />
             }
         ]
     },

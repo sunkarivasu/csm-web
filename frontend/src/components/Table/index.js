@@ -1,48 +1,74 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { snake2NameCase } from '../../utils/common';
+import { MdDelete } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
 
-const Table = ({ data, className, showId = true }) => {
+const Table = ({ data, name = "", id = true, headers = [], headerNames = [], actions = [], className }) => {
+    if (!data || !data.length) {
+        return <h3>Nothing to show</h3>;
+    }
     const [filteredData, setFilteredData] = useState(data);
-
-    let header;
-    if (data.length) {
-        header = Object.keys(data[0]);
-        if (!showId) {
-            header = header.filter(item => item.toLowerCase().replace('_', '') !== 'id');
-        }
+    if (headers.length) {
+        data = data.map((item) => {
+            let tempItem = { ...item };
+            Object.keys(tempItem).forEach((key) => {
+                if (!headers.includes(key)) {
+                    delete tempItem[key];
+                }
+            });
+            return tempItem;
+        });
     }
 
-    return (
+    let header = Object.keys(data[0]);
+    if (headerNames.length) {
+        if (headers.length) {
+            if (headers.length !== headerNames.length) {
+                throw new Error('Headers and Header Names length must be same');
+            }
+        } else {
+            if (header.length !== headerNames.length) {
+                throw new Error('Headers and Header Names length must be same');
+            } else {
+                header = headerNames;
+            }
+        }
+    }
+    if (!id) {
+        header = header.filter((item) => item.toLowerCase().replace('_', '') !== 'id');
+    }
+
+    return !data.length ? (
+        <h3>Nothing to show</h3>
+    ) : (
         <div className="card">
-            {!data.length ? (
-                <div className='text-center bg-secondary text-light test'>
-                    Nothing to show
-                </div>
-            ) : (
-                <table className={className}>
-                    <thead>
-                        <tr>
-                            {header.map((column, index) => (
-                                <td key={index}>{snake2NameCase(column)}</td>
+            <div className="table-name">{name}</div>
+            <table className={className}>
+                <thead>
+                    <tr>
+                        {header.map((key, index) => (
+                            <td key={index}>{snake2NameCase(key)}</td>
+                        ))}
+                        {actions.length > 0 && <td colSpan={actions.length}>Actions</td>}
+                    </tr>
+                </thead>
+                <tbody>
+                    {filteredData.map((item) => {
+                        let tempItem = { ...item };
+                        !id && delete tempItem.id
+                        return (<tr key={item.id}>
+                            {Object.values(tempItem).map((value, index) => (
+                                <td key={index}>{value.toString()}</td>
                             ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredData.map(item => {
-                            console.log(item);
-                            let tempItem = { ...item };
-                            !showId && delete tempItem.id;
-                            return (
-                                <tr key={item.id}>
-                                    {Object.values(tempItem).map((value, index) => (
-                                        <td key={index}>{value.toString()}</td>
-                                    ))}
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-            )}
+                            {actions.length > 0 && <td>
+                                {actions.map((action, index) => {
+                                    return <button class="action-btns" key={index} onClick={() => action.handler(item.id)}>{action.name == "Edit"?<CiEdit/>:action.name=="Delete"?<MdDelete/>:action.name}</button>
+                                })}
+                            </td>}
+                        </tr>)
+                    })}
+                </tbody>
+            </table>
         </div>
     );
 };
