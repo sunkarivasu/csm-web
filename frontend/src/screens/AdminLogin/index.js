@@ -1,4 +1,4 @@
-/** 
+/**
  * TODO: This code can be cleaned further...
  * I    1. state variables can be grouped
  *      2. validation logic can be moved to a separate file

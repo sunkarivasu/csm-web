@@ -10,6 +10,7 @@ import {
     AdminDashboard,
     AdminLogin,
     Admins,
+    AddAdmin,
     Home,
     NormalOffers,
     Offers,
@@ -24,6 +25,7 @@ import {
 import { setAxiosDefaults } from './utils/axios.config';
 import Categories from './screens/Categories';
 import Requests from './screens/Requests';
+import AddProduct from './screens/Products/add';
 const router = createBrowserRouter([
     {
         path: '/',
@@ -32,11 +34,14 @@ const router = createBrowserRouter([
     {
         path: '/admin',
         element: <ProtectedRoute role={['admin']}><AdminDashboard /></ProtectedRoute>,
-        element: <AdminDashboard />,
         children: [
             {
                 path: '/admin/admins',
                 element: <ProtectedRoute role={['super_admin']}><Admins /></ProtectedRoute>
+            },
+            {
+                path: '/admin/admins/add',
+                element: <ProtectedRoute role={['super_admin']}><AddAdmin /></ProtectedRoute>
             },
             {
                 path: '/admin/orders',
@@ -45,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path: '/admin/products',
                 element: <Products />
+            },
+            {
+                path: '/admin/products/add',
+                element: <AddProduct />
             },
             {
                 path: '/admin/categories',

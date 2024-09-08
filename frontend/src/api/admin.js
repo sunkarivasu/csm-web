@@ -29,3 +29,16 @@ export const getAdmins = () => new Promise((resolve, reject) => {
         .then(res => resolve(res.data))
         .catch(err => reject(err));
 });
+
+export const registerAdmin = ({ name, email, password, allow_password_change }) => new Promise((resolve, reject) => {
+    console.log({ name, email, password, allow_password_change })
+    axios.post("/admins/register", { name, email, password, allow_password_change: allow_password_change == 'true' })
+    .then(res => resolve(res.data))
+    .catch(err => reject(err));
+});
+
+export const deleteAdmin = (id) => new Promise((resolve, reject) => {
+    axios.delete(`/admins/${id}`)
+    .then(res => resolve(res.data))
+    .catch(err => reject(err));
+});

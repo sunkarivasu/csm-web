@@ -2,6 +2,7 @@ import Home from "./Home";
 import AdminDashboard from "./AdminDashboard";
 import AdminLogin from "./AdminLogin";
 import Admins from "./Admins";
+import AddAdmin from "./Admins/add";
 import Categories from "./Categories";
 import Orders from "./Orders";
 import Products from "./Products";
@@ -15,6 +16,7 @@ export {
     AdminDashboard,
     AdminLogin,
     Admins,
+    AddAdmin,
     Categories,
     Orders,
     Products,

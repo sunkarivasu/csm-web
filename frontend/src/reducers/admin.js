@@ -16,6 +16,7 @@ export const adminSlice = createSlice({
             state.errors = {};
         },
         adminLoginSuccess: (state, action) => {
+            console.log("adminlogin success called")
             state.loading = false;
             state.isAuthenticated = true;
             state.user = action.payload;

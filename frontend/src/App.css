@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
-    --primary-color: #CF1884;
+    /* --primary-color: #CF1884; */
     --primary-color: #FF8901;
     --secondary-color: #FB9300;
+    --very-light-orange-color: #FFE3BB;
     --danger-color: #E72444;
     --dark-grey-color: #333;
     --grey-color: #737373;
@@ -14,6 +15,11 @@
     --icon-color:#FFB056;
     --background-color:#F2EFE5;
     --light-gray-color:#E9EAF3;
+    --light-green-color: #78ABA8;
+    --very-light-green-color: #CDE8E5;
+    --light-blue-color: #9EB8D9;
+    --light-blue-color: #6482AD;
+    --very-light-blue-color: #C0D6E8;
     --medium-gray-color:#8E95A9;
     --medium-blue-color:#1C2A53;
     --line-seperator-color: #E9EAF3;
@@ -26,6 +32,10 @@
 
     --secondary-faded-color: #FEEDD1;
 
+    --order-pending-color: #FFC107;
+    --order-confirmed-color: #2196F3;
+    --order-delivered-color: #4CAF50;
+    --order-cancelled-color: #F44336;
 }
 
 * {
@@ -182,20 +192,96 @@ input[type=number]::-webkit-outer-spin-button {
 .card {
     padding:30px;
     margin:50px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 4px 2px var(--light-grey-color);
-    background-color: var(--light-color);
 }
 
 .card>* {
     border-radius: 8px;
 }
 
+/* Form */
+/* c */
+.BaseForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.FormContainer {
+    min-width: 350px; /* Adjust width as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 auto;
+    background-color: var(--light-color);
+    padding: 30px 25px;
+}
+
+.FormField {
+    margin-bottom: 15px;
+}
+
+.FieldLabel {
+    display: block;
+    font-weight: bold;
+}
+
+.FieldInput,
+.FieldSelect {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+/* c */
+
+/* .BaseForm {
+    background-color: var(--light-color);
+    padding:30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px 2px var(--light-grey-color);
+    display: flex;
+    justify-content: center;
+} */
+
+/* .order-product-list{
+    width: 100%;
+} */
+
+.BaseForm .btn-submit{
+    width:100%;
+    padding: 5px;
+    margin: 20px 0px 10px 0px;
+    color: var(--light-color);
+    background-color: var(--secondary-color);
+}
+
+.BaseForm input{
+    min-width: 200px;
+    padding:5px;
+    border-radius: 5px;
+}
+
+
 /* Table */
 table {
     width: 100%;
     border-collapse: collapse;
-    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -207,19 +293,38 @@ table {
 }
 
 table thead tr {
-    background-color: var(--light-gray-color);
-    color: var(--medium-gray-color);
+    background-color: var(--icon-color);
 }
 
-table thead tr td {
+table tr.light-color-row{
+    background-color: var(--very-light-orange-color);
+}
+
+table thead tr td{
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.add-btn-div{
+    display: flex;
+    justify-content: right;
+    margin-bottom: 10px;
+}
+
+.add-btn-div button{
+    background-color : var(--icon-color);
+    padding: 5px 30px;
+    border: none;
+    border-radius: 5px;
     font-weight: 500;
-    letter-spacing: 0.5px;
-}
-table tr{
-    border-bottom: 2px solid var(--line-seperator-color);
 }
 
-table tr td {
+table tr td{
+    padding: 15px 5px;
+    border-radius: none;
+}
+
+table tr td .table-row-data{
     padding: 16px 8px;
     color: var(--main-name-color);
 }
@@ -228,17 +333,18 @@ table tr td:first-child {
     padding-left: 50px;
 }
 
-table tr td:last-child {
+/* table tr td:last-child {
     padding-right: 50px;
-}
+} */
 
 .action-btns
 {
     background-color: transparent;
+    color: var(--icon-color);
     border: none;
     margin-right: 10px;
     font-size: larger;
-    color: var(--action-icon-color)
+    /* color: var(--action-icon-color) */
 }
 
 @media screen and (max-width: 768px) {
@@ -246,9 +352,9 @@ table tr td:last-child {
         padding-left: 20px;
     }
 
-    table tr td:last-child {
+    /* table tr td:last-child {
         padding-right: 20px;
-    }
+    } */
 }
 
 @media screen and (max-width: 576px) {
@@ -256,11 +362,13 @@ table tr td:last-child {
         padding-left: 10px;
     }
 
-    table tbody tr td:last-child {
+    /* table tbody tr td:last-child {
         padding-right: 8px;
-    }
+    } */
 }
 
-table.striped tbody tr:nth-child(even) {
-    background-color: var(--secondary-faded-color);
+.field-error-div .err-msg{
+    color: var(--danger-color);
+    font-weight: 500;
+    margin-top: 5px;
 }

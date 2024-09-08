@@ -1,0 +1,50 @@
+.product-form{
+    min-width: 800px;
+}
+
+.product-form select{
+    min-width: 200px;
+}
+
+.category-select-field{
+    margin-right: 50px;
+}
+
+.subCategory-select-field{
+    margin-left: 50px;
+}
+
+.btn-submit{
+    width: 200px !important;
+}
+
+.category-fields, .name-brand-fields, .quantityType-image-fields{
+    display: flex;
+    justify-content: space-between;
+}
+
+.name-brand-fields .FormField,.category-fields .FormField{
+    width: 50%;
+}
+
+.FormField{
+    margin: 10px;
+}
+
+.product-image{
+    width: 200px;
+    height: 200px;
+}
+
+.or-text{
+    text-align: center;
+}
+
+/* .variant-div{
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.variant-div .FormField{
+    width: 5px;
+}

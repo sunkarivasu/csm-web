@@ -15,35 +15,29 @@ const Table = ({ data, className, showId = true }) => {
 
     return (
         <div className="card">
-            {!data.length ? (
-                <div className='text-center bg-secondary text-light test'>
-                    Nothing to show
-                </div>
-            ) : (
-                <table className={className}>
-                    <thead>
-                        <tr>
-                            {header.map((column, index) => (
-                                <td key={index}>{snake2NameCase(column)}</td>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map(item => {
-                            console.log(item);
-                            let tempItem = { ...item };
-                            !showId && delete tempItem.id;
-                            return (
-                                <tr key={item.id}>
-                                    {Object.values(tempItem).map((value, index) => (
-                                        <td key={index}>{value.toString()}</td>
-                                    ))}
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-            )}
+            <table className={className}>
+                <thead>
+                    <tr>
+                        {header.map((column, index) => (
+                            <td key={index}>{snake2NameCase(column)}</td>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map(item => {
+                        console.log(item);
+                        let tempItem = { ...item };
+                        !showId && delete tempItem.id;
+                        return (
+                            <tr key={item.id}>
+                                {Object.values(tempItem).map((value, index) => (
+                                    <td key={index}>{value.toString()}</td>
+                                ))}
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
         </div>
     );
 };
